@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Cherry_Landscape" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7a5c9b49-9dc5-422a-ac69-e92cf61ef530">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SigeWeb2"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="tableDataset" uuid="3a8533c0-dd12-434e-b124-c56ef05f9cfb">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<queryString language="SQL">
+		<![CDATA[SELECT 
+    af.codigo AS activo_codigo,
+    af.descripcion AS activo_descripcion,
+    af."Valor Inicial",
+    af."Valor InicialMC",
+    af."Tasa de preciacion",
+    af."Depreciacion acumulada",
+    af."Depreciacion acumuladaMC",
+    af."Nombre empleado",
+    af."Estado Actual",
+    af.fecha_alta,
+    af.numero_serie,
+    fa.id_area,
+    fa.descripcion AS area_descripcion,
+    cc.id_ccosto AS ccostos,
+    cc.desc_ccosto
+FROM 
+    assns_activos_fijos af
+JOIN 
+    fin_areas fa ON af.fin_areasid_area = fa.id_area
+JOIN 
+    assns_centros_costo cc ON fa.assns_centros_costoid_ccosto = cc.id_ccosto
+]]>
+	</queryString>
+	<field name="activo_codigo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="activo_codigo"/>
+		<property name="com.jaspersoft.studio.field.label" value="activo_codigo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_activos_fijos"/>
+	</field>
+	<field name="activo_descripcion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="activo_descripcion"/>
+		<property name="com.jaspersoft.studio.field.label" value="activo_descripcion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_activos_fijos"/>
+	</field>
+	<field name="Valor Inicial" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Valor Inicial"/>
+		<property name="com.jaspersoft.studio.field.label" value="Valor Inicial"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_activos_fijos"/>
+	</field>
+	<field name="Valor InicialMC" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Valor InicialMC"/>
+		<property name="com.jaspersoft.studio.field.label" value="Valor InicialMC"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_activos_fijos"/>
+	</field>
+	<field name="Tasa de preciacion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Tasa de preciacion"/>
+		<property name="com.jaspersoft.studio.field.label" value="Tasa de preciacion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_activos_fijos"/>
+	</field>
+	<field name="Depreciacion acumulada" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Depreciacion acumulada"/>
+		<property name="com.jaspersoft.studio.field.label" value="Depreciacion acumulada"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_activos_fijos"/>
+	</field>
+	<field name="Depreciacion acumuladaMC" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Depreciacion acumuladaMC"/>
+		<property name="com.jaspersoft.studio.field.label" value="Depreciacion acumuladaMC"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_activos_fijos"/>
+	</field>
+	<field name="Nombre empleado" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Nombre empleado"/>
+		<property name="com.jaspersoft.studio.field.label" value="Nombre empleado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_activos_fijos"/>
+	</field>
+	<field name="Estado Actual" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Estado Actual"/>
+		<property name="com.jaspersoft.studio.field.label" value="Estado Actual"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_activos_fijos"/>
+	</field>
+	<field name="fecha_alta" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="fecha_alta"/>
+		<property name="com.jaspersoft.studio.field.label" value="fecha_alta"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_activos_fijos"/>
+	</field>
+	<field name="numero_serie" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="numero_serie"/>
+		<property name="com.jaspersoft.studio.field.label" value="numero_serie"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_activos_fijos"/>
+	</field>
+	<field name="id_area" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="id_area"/>
+		<property name="com.jaspersoft.studio.field.label" value="id_area"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fin_areas"/>
+	</field>
+	<field name="area_descripcion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="area_descripcion"/>
+		<property name="com.jaspersoft.studio.field.label" value="area_descripcion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fin_areas"/>
+	</field>
+	<field name="ccostos" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ccostos"/>
+		<property name="com.jaspersoft.studio.field.label" value="ccostos"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_centros_costo"/>
+	</field>
+	<field name="desc_ccosto" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="desc_ccosto"/>
+		<property name="com.jaspersoft.studio.field.label" value="desc_ccosto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_centros_costo"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="120" splitType="Stretch">
+			<frame>
+				<reportElement mode="Transparent" x="0" y="0" width="801" height="66" backcolor="#FFFFFF" uuid="d8d9e644-3a32-491d-97cb-a277aff17133"/>
+				<staticText>
+					<reportElement x="10" y="0" width="791" height="30" uuid="1dcef702-55d8-46b8-a397-3f3f32bac424"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial Black" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Universidad Agraria de la Habana "Fructuoso Rodríguez Pérez"]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="110" y="40" width="470" height="61" uuid="4e9d9d83-ffd8-4e1c-aedc-4c72bb7ab80a"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[Autopista Nacional y Carretera de Tapaste, Municipio San José de las Lajas, Providencia Mayabeque.
+Código: 223-0-06815
+Teléfono: (5347)860101 ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2" y="66" width="799" height="30" uuid="45b7db58-5b7c-4bd9-8b54-bcddb63bed50"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial Black" size="16"/>
+					</textElement>
+					<text><![CDATA[Listado de Activos Por Número de activo]]></text>
+				</staticText>
+				<textField pattern="MMMMM dd, yyyy">
+					<reportElement x="110" y="80" width="90" height="14" uuid="daec8a70-bbe9-4a36-9994-13f828249014"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<image>
+					<reportElement x="-10" y="-10" width="110" height="104" uuid="cff38759-28e9-444e-bbc1-4f49e3b4690e"/>
+					<imageExpression><![CDATA["C:/Escuela/Practicas/Proyectos Practicas/photo_2024-01-16_20-41-04.jpg"]]></imageExpression>
+				</image>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="-1" y="0" width="38" height="20" uuid="c27eae59-853a-4924-a516-0a4c5253ab16">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d36b4461-4326-4d3b-b12a-2c52167ea2c7"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="0" width="130" height="20" uuid="e6956d7f-e6b7-47ab-b9ab-7713c5be1aeb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="359fab9d-49e8-46c5-a698-a84fcbd602e7"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Descripción del Activo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="1" width="40" height="19" uuid="99c8fb9b-a9ad-4bf0-8417-d06b998b4e5a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="da87811d-bbe5-4a76-b1af-0b4c030c1636"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Área]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="0" width="100" height="20" uuid="b28f7b43-59f5-4a4a-a634-0a4c0fb97ef0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="540bb13b-9f1e-47e5-9d5a-eb3a51529143"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Área Descripción]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="360" y="-1" width="90" height="20" uuid="2348528b-3b44-4aff-afa4-ed13c76d2163">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1ba8aeb0-a1ee-4807-ada4-19becb403fdc"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Val Inicial CUP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="-1" width="80" height="20" uuid="4622fa92-5cc0-43b4-b0e4-76849f1b5e4f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bcc4adf1-b8da-402e-8f14-897c03dd4c7f"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Tasa de Dep]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="530" y="0" width="100" height="19" uuid="d4653c8d-b7da-4752-999f-c1a82bd9c088">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a6e06a9d-c33c-44ae-923d-d657fff13479"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Dep Acumulado CUP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="630" y="0" width="80" height="20" uuid="0a4d6560-8072-4df3-a19b-2065e3cb1a14">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="781117d2-ab47-4e9c-95b5-a32fe2c63efb"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Responsable]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="710" y="0" width="50" height="20" uuid="a42b1a65-2625-4104-8af9-4efc739ff9c5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0cb2c4ae-89b3-450c-8dd3-4e0be3d65887"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="760" y="0" width="41" height="20" uuid="c4843e60-38e4-44a9-8649-426f8bf186fc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="792ad312-1cb1-46d1-9779-7ebeaefc5cb9"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Centro de Costos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="0" width="50" height="19" uuid="8b31ca60-6bdb-472d-bf55-952fbc6e4223">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8d40aad1-fac0-40a2-a673-4c6fff38580f"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Número]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="-11" width="801" height="29" uuid="34a2ae4b-4055-476b-8676-d499f6af510b"/>
+				<frame>
+					<reportElement mode="Transparent" x="-1" y="15" width="802" height="25" forecolor="#D0B48E" backcolor="#CCFF99" uuid="ffb10ec8-0371-4545-8eaa-96d62ad3cec0"/>
+				</frame>
+				<textField>
+					<reportElement x="2" y="0" width="38" height="30" uuid="8fcd6077-c799-45c2-9f17-dc352cffed90">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4432cb95-7197-47a4-8775-6fa1325cc0b3"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{activo_codigo}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="40" y="0" width="130" height="30" uuid="fec8a65a-d081-460f-84dd-4b142a3b4e9e">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="72cd2fc8-ad9c-4b68-94ae-77df65aac964"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{activo_descripcion}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="170" y="0" width="50" height="30" uuid="da28e9ed-60e0-4665-b6b2-c74306b248a7">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d5fe3983-4c6b-4b4f-aded-98a844444d94"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{numero_serie}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="220" y="-1" width="40" height="30" uuid="7a005a09-386e-4ede-aab5-1ba455f47dd5">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bf9de688-e4d5-4f54-ad9b-f8dd4ffdca06"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{id_area}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="260" y="0" width="100" height="30" uuid="7fc4468c-25ae-4bed-8706-130c4e888604">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="da608c51-dbeb-4b79-a3b2-91da1c57497b"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{area_descripcion}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="360" y="0" width="90" height="30" uuid="c89ef35c-00b4-4f7a-b03f-488e7faf80e4">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="72859cb3-31fb-4910-86d0-6159c58c4f85"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{Valor Inicial}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="450" y="0" width="80" height="30" uuid="3618d6d6-347e-4431-a773-27963fc3a396">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="510664ac-7293-4b74-8361-abf3278bbe46"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{Tasa de preciacion}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="530" y="0" width="100" height="30" uuid="ab71a6e1-3be7-44b5-9f13-4d0a444d53d5">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cce7cdbe-6cb5-48f3-94ca-0cb5f29e2722"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{Depreciacion acumulada}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="630" y="0" width="80" height="30" uuid="32fca908-f4b8-4252-bf26-427c096d7044">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="87ed5f4b-59f3-41e1-9a01-a8087c304693"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{Nombre empleado}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="710" y="0" width="50" height="30" uuid="44777749-2eee-46ce-8725-ceea598fa06a">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="efb553e7-d2eb-46c3-8c3f-fea42bfc9b62"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{Estado Actual}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="760" y="0" width="41" height="30" uuid="311efbe9-5c84-45ed-a46c-5b4db3a5114f">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1e2b4805-dabf-4d0c-a6ea-948c8107665a"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{ccostos}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+   version="6.0">
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+     <servlet>
+        <servlet-name>ModificarUsuarioServlet</servlet-name>
+        <servlet-class>com.tuempresa.servlet.ModificarUsuarioServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ModificarUsuarioServlet</servlet-name>
+        <url-pattern>/ModificarUsuario</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EliminarUsuarioServlet</servlet-name>
+        <servlet-class>com.tuempresa.servlet.EliminarUsuarioServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EliminarUsuarioServlet</servlet-name>
+        <url-pattern>/EliminarUsuario</url-pattern>
+    </servlet-mapping>
+</web-app>

@@ -1,0 +1,1 @@
+Para el correcto funcionamiento los proyectos es necesario cambiar las credenciales del archivo db.propeites con sus credenciales PostgreSQL

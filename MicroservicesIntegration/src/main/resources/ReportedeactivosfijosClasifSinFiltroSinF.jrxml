@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Cherry_Landscape" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7a5c9b49-9dc5-422a-ac69-e92cf61ef530">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SigeWeb2"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="tableDataset" uuid="3a8533c0-dd12-434e-b124-c56ef05f9cfb">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<parameter name="idUsario" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT 
+    af.codigo AS activo_codigo,
+    af.descripcion AS activo_descripcion,
+    af."Valor Inicial",
+    af."Valor InicialMC",
+    af."Tasa de preciacion",
+    af."Depreciacion acumulada",
+    af."Depreciacion acumuladaMC",
+    af."Nombre empleado",
+    af."Estado Actual",
+    af.fecha_alta,
+    af.numero_serie,
+    fa.id_area,
+    fa.descripcion AS area_descripcion,
+    cc.id_ccosto AS ccostos,
+    cc.desc_ccosto,
+    ac.id_clasificacion,
+    ac.desc_clasificacion
+FROM 
+    assns_activos_fijos af
+JOIN 
+    fin_areas fa ON af.fin_areasid_area = fa.id_area
+JOIN 
+    assns_centros_costo cc ON fa.assns_centros_costoid_ccosto = cc.id_ccosto
+JOIN 
+    permisos p ON fa.id_area = p.fin_areasid_area
+JOIN 
+    usuario u ON p.usuarioid = u.id
+JOIN 
+    assns_clasificacion_activofijo ac ON af.assns_clasificacion_activofijoid_clasificacion = ac.id_clasificacion
+WHERE 
+    u.id = $P{idUsario}
+]]>
+	</queryString>
+	<field name="activo_codigo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="activo_codigo"/>
+		<property name="com.jaspersoft.studio.field.label" value="activo_codigo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_activos_fijos"/>
+	</field>
+	<field name="activo_descripcion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="activo_descripcion"/>
+		<property name="com.jaspersoft.studio.field.label" value="activo_descripcion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_activos_fijos"/>
+	</field>
+	<field name="Valor Inicial" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Valor Inicial"/>
+		<property name="com.jaspersoft.studio.field.label" value="Valor Inicial"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_activos_fijos"/>
+	</field>
+	<field name="Valor InicialMC" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Valor InicialMC"/>
+		<property name="com.jaspersoft.studio.field.label" value="Valor InicialMC"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_activos_fijos"/>
+	</field>
+	<field name="Tasa de preciacion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Tasa de preciacion"/>
+		<property name="com.jaspersoft.studio.field.label" value="Tasa de preciacion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_activos_fijos"/>
+	</field>
+	<field name="Depreciacion acumulada" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Depreciacion acumulada"/>
+		<property name="com.jaspersoft.studio.field.label" value="Depreciacion acumulada"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_activos_fijos"/>
+	</field>
+	<field name="Depreciacion acumuladaMC" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Depreciacion acumuladaMC"/>
+		<property name="com.jaspersoft.studio.field.label" value="Depreciacion acumuladaMC"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_activos_fijos"/>
+	</field>
+	<field name="Nombre empleado" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Nombre empleado"/>
+		<property name="com.jaspersoft.studio.field.label" value="Nombre empleado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_activos_fijos"/>
+	</field>
+	<field name="Estado Actual" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Estado Actual"/>
+		<property name="com.jaspersoft.studio.field.label" value="Estado Actual"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_activos_fijos"/>
+	</field>
+	<field name="fecha_alta" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="fecha_alta"/>
+		<property name="com.jaspersoft.studio.field.label" value="fecha_alta"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_activos_fijos"/>
+	</field>
+	<field name="numero_serie" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="numero_serie"/>
+		<property name="com.jaspersoft.studio.field.label" value="numero_serie"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_activos_fijos"/>
+	</field>
+	<field name="id_area" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="id_area"/>
+		<property name="com.jaspersoft.studio.field.label" value="id_area"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fin_areas"/>
+	</field>
+	<field name="area_descripcion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="area_descripcion"/>
+		<property name="com.jaspersoft.studio.field.label" value="area_descripcion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="fin_areas"/>
+	</field>
+	<field name="ccostos" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ccostos"/>
+		<property name="com.jaspersoft.studio.field.label" value="ccostos"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_centros_costo"/>
+	</field>
+	<field name="desc_ccosto" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="desc_ccosto"/>
+		<property name="com.jaspersoft.studio.field.label" value="desc_ccosto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_centros_costo"/>
+	</field>
+	<field name="id_clasificacion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="id_clasificacion"/>
+		<property name="com.jaspersoft.studio.field.label" value="id_clasificacion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_clasificacion_activofijo"/>
+	</field>
+	<field name="desc_clasificacion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="desc_clasificacion"/>
+		<property name="com.jaspersoft.studio.field.label" value="desc_clasificacion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="assns_clasificacion_activofijo"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<frame>
+				<reportElement mode="Transparent" x="0" y="0" width="801" height="66" backcolor="#FFFFFF" uuid="d8d9e644-3a32-491d-97cb-a277aff17133"/>
+				<image>
+					<reportElement x="-20" y="-20" width="130" height="123" uuid="c8bfa5bb-6448-450a-b4c7-e85d15981726"/>
+					<imageExpression><![CDATA["C:/Users/Jose.R_M_Estevez/Pictures/Saved Pictures/photo_2024-01-16_20-41-04.jpg"]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement x="10" y="0" width="791" height="30" uuid="1dcef702-55d8-46b8-a397-3f3f32bac424"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial Black" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Universidad Agraria de la Habana "Fructuoso Rodríguez Pérez"]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="110" y="40" width="470" height="61" uuid="4e9d9d83-ffd8-4e1c-aedc-4c72bb7ab80a"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<text><![CDATA[Autopista Nacional y Carretera de Tapaste, Municipio San José de las Lajas, Providencia Mayabeque.
+Código: 223-0-06815
+Teléfono: (5347)860101 ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2" y="66" width="799" height="30" uuid="45b7db58-5b7c-4bd9-8b54-bcddb63bed50"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial Black" size="16"/>
+					</textElement>
+					<text><![CDATA[Listado de Activos Fijos Por Clasificación]]></text>
+				</staticText>
+				<textField pattern="MMMMM dd, yyyy">
+					<reportElement x="110" y="80" width="90" height="14" uuid="daec8a70-bbe9-4a36-9994-13f828249014"/>
+					<textElement>
+						<font fontName="Arial"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="1" width="58" height="18" uuid="5e6eeea7-a0e7-4ab4-9a95-2f1002d93d8a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d3852da5-bacb-46fa-9bf9-8032a5537b35"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="0" width="70" height="19" uuid="8c1ef6d8-b14e-4d58-befe-66bdd05ba53b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6b3f526f-b6e2-432c-8054-d2dba799126a"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Descripción]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="1" width="90" height="19" uuid="601ccdce-e46c-49ab-9de6-305ef6fc709d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dd1fb0cc-1ce9-4411-8d04-5a227e48df4b"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left">
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Val Inicial CUP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="740" y="-1" width="60" height="19" uuid="3965a4b1-2ab4-4648-bd5a-4cdf8fe931a9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="77ed0ffa-3523-4519-9ac7-baffcc394937"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Centro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="600" y="-1" width="80" height="18" uuid="5dbd4499-8f5e-49e6-a359-1517243b21a1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f5ecd39d-89a6-4e97-970e-d4b8481c57f1"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Fecha de Alta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="680" y="-1" width="60" height="18" uuid="67589a91-24a4-4c2a-a7c2-37185f314bac">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ca64e271-4e16-4b9d-bca2-510543567e05"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="-1" width="75" height="22" uuid="9f181a5d-c891-4dae-aaf6-379270d6db80"/>
+				<textElement>
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Tasa de Dep]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="374" y="-1" width="120" height="30" uuid="3b0b5ed7-0994-4857-9d07-22c6aab3c4b8"/>
+				<textElement>
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Dep Acumulado CUP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="494" y="-1" width="106" height="30" uuid="88dac48e-7f94-45af-aee8-1de5393f1872"/>
+				<textElement>
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Responsable]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="1" width="80" height="30" uuid="caa58c46-1c08-4093-b1b7-c1338347e340">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c544200d-7976-4bcd-87f6-b809986a0a22"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Clasificación]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="-11" width="801" height="29" uuid="34a2ae4b-4055-476b-8676-d499f6af510b"/>
+				<frame>
+					<reportElement mode="Transparent" x="-1" y="15" width="802" height="25" forecolor="#D0B48E" backcolor="#CCFF99" uuid="ffb10ec8-0371-4545-8eaa-96d62ad3cec0"/>
+				</frame>
+				<textField>
+					<reportElement x="0" y="0" width="60" height="30" uuid="be1f896b-c408-4559-a99e-b86a3cebe9fa">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="98629144-4cd6-4daf-8a54-20d24138c66f"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{activo_codigo}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="60" y="0" width="70" height="30" uuid="454c2c27-3970-4daa-81f5-e4fccee7c7bb">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6001d11d-1c0d-41e1-8a9b-152326582b63"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{activo_descripcion}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="210" y="-1" width="90" height="30" uuid="00d30eea-1526-4194-9ba7-16a7cc4a3d78">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b3d35886-5247-4d23-a02e-38901eb3940a"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{Valor Inicial}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="300" y="-1" width="75" height="30" uuid="56c878b1-59c6-4e00-a30d-66c8017b74b4">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="905ea33a-d0e5-4155-9365-64eab2341e2f"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{Tasa de preciacion}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="375" y="-1" width="119" height="30" uuid="713f19e9-d4b8-4aa5-adf6-c8c80e8d4145">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="242a89cb-dd05-4d1e-84f0-9d2f1bdbc230"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{Depreciacion acumulada}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="494" y="2" width="106" height="30" uuid="39f76056-4883-4d55-9612-907129df154c">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2d549e66-8728-4dea-978e-8288df87a88e"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{Nombre empleado}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="600" y="2" width="80" height="30" uuid="50d36806-b99d-49e1-b2ff-6fe2015c36d6">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e2931688-1623-43d8-89c6-8d222c1ca0b3"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{fecha_alta}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="680" y="2" width="60" height="30" uuid="57092afd-5dbe-4bc3-8a7f-576139d79057">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f967d414-3615-4e9c-a1cc-68a7958f68de"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{Estado Actual}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="740" y="2" width="61" height="30" uuid="70013bb0-b3ce-46bd-99cd-d858b8dd0446">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3d70c6ed-6f02-4226-a440-69bac5e98b60"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{ccostos}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="130" y="0" width="80" height="30" uuid="638bbaa0-07cd-45c2-8e42-ab9aa372ebd2">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c544200d-7976-4bcd-87f6-b809986a0a22"/>
+					</reportElement>
+					<textFieldExpression><![CDATA[$F{desc_clasificacion}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="57" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
