@@ -1,13 +1,13 @@
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <%@ page import="java.sql.*" %>
 <%
-    HttpSession httpSession = request.getSession(true); // No crear una nueva sesión si no existe
+    HttpSession httpSession = request.getSession(true); // No crear una nueva sesiï¿½n si no existeaaa
 
     if (httpSession == null || httpSession.getAttribute("logeado") == null || httpSession.getAttribute("logeado").equals("0")) {
-        // Redirigir a login.html si el usuario no está logueado
+        // Redirigir a login.html si el usuario no estï¿½ logueado
         response.sendRedirect("login.html");
     } else {
-        // Continuar con la página si el usuario está logueado
+        // Continuar con la pï¿½gina si el usuario estï¿½ logueado
         Integer userId = (Integer) httpSession.getAttribute("userId");
         String tipoUsuario = (String) httpSession.getAttribute("tipo");
 
@@ -24,7 +24,7 @@
         } else if ("ResponsableAreas".equals(tipoUsuario) || "responsableAreas".equals(tipoUsuario)) {
             response.sendRedirect("area.jsp");
         } else {
-            // Redirigir a login.html si el tipo de usuario no es válido
+            // Redirigir a login.html si el tipo de usuario no es vï¿½lido
             response.sendRedirect("login.html");
         }
     }
